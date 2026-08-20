@@ -104,12 +104,14 @@ function LiveBody({ manifest, domainId }: { manifest: Manifest; domainId: string
         <div>
           <div className="stat-grid" style={{ marginBottom: 14 }}>
             <div className="stat">
-              <div className="stat-label">Cumulative score</div>
+              <div className="stat-label">Last on-chain reward</div>
               <div className="readout-lg">
-                {status.data.score !== null ? (status.data.score / 100).toFixed(2) : "n/a"}
+                {status.data.score !== null ? status.data.score.toFixed(2) : "n/a"}
               </div>
               <div className="mono muted" style={{ fontSize: 12, marginTop: 4 }}>
-                {status.data.score !== null ? `raw get_score ${status.data.score}` : "get_score unavailable"}
+                {status.data.score !== null
+                  ? `raw get_last_reward ${status.data.score}`
+                  : "get_last_reward unavailable"}
               </div>
             </div>
             <div className="stat">

@@ -36,4 +36,16 @@ describe("fixtures validate against the manifest schema", () => {
       expect(parsed.error.issues[0].path.join(".")).toContain("contract.address");
     }
   });
+
+  it("keeps the verified crisis receipt distinct from the mock replay", () => {
+    const parsed = ManifestSchema.parse(readFixture("crisis"));
+    const live = parsed.runs.find((run) => run.mode === "live");
+    expect(live?.episodes[0]?.steps[0]?.tx?.hash).toBe(
+      "0xa0e7c9799b29fa1ea51be5e52846eaf80dd9ffa1663d7f465e49ece48a9be5c6",
+    );
+    expect(live?.episodes[0]?.steps[0]?.reward).toBe(0);
+    expect(parsed.runs.find((run) => run.mode === "mock")?.label).toContain(
+      "no live receipts",
+    );
+  });
 });

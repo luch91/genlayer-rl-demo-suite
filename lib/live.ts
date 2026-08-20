@@ -1,6 +1,6 @@
 /*
  * Live on-chain read. This is the only place the suite talks to GenLayer at
- * runtime. It calls the contract's read-only views (get_state, get_score) with
+ * runtime. It calls the contract's read-only views (get_state, get_last_reward) with
  * an ephemeral account, so no key and no funds are needed. genlayer-js is
  * dynamically imported so it never weighs down the other routes.
  */
@@ -46,13 +46,13 @@ export async function readLiveState(address: string, chain: string): Promise<Liv
   let score: number | null = null;
   try {
     const rawScore = await withTimeout(
-      client.readContract({ address: addr, functionName: "get_score", args: [] }),
+      client.readContract({ address: addr, functionName: "get_last_reward", args: [] }),
       25000,
-      "reading get_score",
+      "reading get_last_reward",
     );
     score = Number(rawScore as bigint);
   } catch {
-    // get_score is optional context; a failure here should not sink the read.
+    // The reward view is optional context; a failure here should not sink the read.
     score = null;
   }
 
