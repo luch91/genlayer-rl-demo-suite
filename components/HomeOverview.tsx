@@ -8,6 +8,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { learningView } from "@/lib/adapters";
 import { readLiveState } from "@/lib/live";
@@ -29,6 +30,13 @@ export function HomeOverview() {
             Four reinforcement-learning agents, each optimizing an immutable LLM-consensus reward on
             GenLayer. Pick an agent to watch it act, get judged, and learn.
           </p>
+          <a
+            className="chip-icon"
+            href="/genlayer-rl-logo.png"
+            download="genlayer-rl-demo-suite-logo.png"
+          >
+            Download logo
+          </a>
         </div>
       </div>
 
@@ -131,19 +139,12 @@ function LiveStatus({ address, chain }: { address: string; chain: string }) {
 
 function BrandMark() {
   return (
-    <svg width="40" height="40" viewBox="0 0 26 26" aria-hidden="true" className="brand-svg">
-      <rect x="2" y="15" width="6" height="9" rx="1" fill="var(--blue)" />
-      <rect x="10" y="9" width="6" height="15" rx="1" fill="var(--red)" />
-      <rect
-        x="18"
-        y="3"
-        width="6"
-        height="21"
-        rx="1"
-        fill="var(--green-sig)"
-        stroke="var(--green-ink)"
-        strokeWidth="1"
-      />
-    </svg>
+    <Image
+      src="/genlayer-rl-logo.png"
+      width="40"
+      height="40"
+      alt="RL Demo Suite logo"
+      className="brand-svg"
+    />
   );
 }
