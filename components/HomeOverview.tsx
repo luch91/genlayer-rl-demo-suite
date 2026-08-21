@@ -17,6 +17,8 @@ import { DOMAIN_IDS } from "@/lib/manifest";
 import { useManifests } from "@/lib/store";
 import { Sparkline } from "./overview/Sparkline";
 
+const LOGO_SRC = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/genlayer-rl-logo.svg`;
+
 export function HomeOverview() {
   const manifests = useManifests();
 
@@ -30,13 +32,6 @@ export function HomeOverview() {
             Four reinforcement-learning agents, each optimizing an immutable LLM-consensus reward on
             GenLayer. Pick an agent to watch it act, get judged, and learn.
           </p>
-          <a
-            className="chip-icon"
-            href="/genlayer-rl-logo.png"
-            download="genlayer-rl-demo-suite-logo.png"
-          >
-            Download logo
-          </a>
         </div>
       </div>
 
@@ -140,7 +135,7 @@ function LiveStatus({ address, chain }: { address: string; chain: string }) {
 function BrandMark() {
   return (
     <Image
-      src="/genlayer-rl-logo.png"
+      src={LOGO_SRC}
       width="40"
       height="40"
       alt="RL Demo Suite logo"

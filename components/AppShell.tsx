@@ -16,6 +16,8 @@ import { DOMAIN_IDS } from "@/lib/manifest";
 import { useManifests, useMode } from "@/lib/store";
 import { ContractChip } from "./ContractChip";
 
+const LOGO_SRC = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/genlayer-rl-logo.svg`;
+
 function parsePath(pathname: string): { domain: string } {
   const parts = pathname.split("/").filter(Boolean);
   return { domain: parts[0] ?? "" };
@@ -24,7 +26,7 @@ function parsePath(pathname: string): { domain: string } {
 function BrandMark() {
   return (
     <Image
-      src="/genlayer-rl-logo.png"
+      src={LOGO_SRC}
       width="32"
       height="32"
       alt="RL Demo Suite logo"
@@ -65,13 +67,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 <span className="brand-mark">RL Demo Suite</span>
                 <span className="brand-sub">agents learning judgment on GenLayer</span>
               </div>
-              <a
-                className="chip-icon"
-                href="/genlayer-rl-logo.png"
-                download="genlayer-rl-demo-suite-logo.png"
-              >
-                Download logo
-              </a>
             </div>
 
             <div className="mode-cluster">
