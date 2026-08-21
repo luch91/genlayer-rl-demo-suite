@@ -3,13 +3,13 @@
 One hosted dashboard for watching four reinforcement-learning agents learn
 human-like judgment from an on-chain LLM committee on GenLayer.
 
-**Live: https://luch91-org.github.io/genlayer-rl-demo-suite/**
+**Live: https://luch91.github.io/genlayer-rl-demo-suite/**
 
 ![The instrument panel replaying a trained crisis-response episode: the world state, the on-chain judge score, the step timeline, and the policy inspector all advance together, step by step.](docs/instrument-panel.gif)
 
 *Recorded from the live dashboard: the instrument panel stepping through a trained crisis-response rollout. Each step updates the world state, the judge's score, the reward chip, and the policy inspector that explains why the agent chose that action.*
 
-Part of [GenLayer RL Agent Autonomy](https://github.com/luch91-org).
+Part of [GenLayer RL Agent Autonomy](https://github.com/luch91/genlayer-RL-agent-autonomy).
 
 The consolidated `genlayer-rl-agent-autonomy` repository publishes one
 manifest per domain under `manifests/`, describing its contract, reward
