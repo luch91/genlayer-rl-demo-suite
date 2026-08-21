@@ -7,7 +7,7 @@ human-like judgment from an on-chain LLM committee on GenLayer.
 
 ![The live GenLayer RL dashboard showing the current SVG logo, agent overview, episode panel, and learning view.](docs/live-dashboard.gif)
 
-*Screen recording captured from the live personal dashboard. It shows the current SVG logo and the dashboard views used to inspect agent actions, judgments, rewards, and learning state.*
+*Screen recording captured from the live personal dashboard, showing the dashboard views used to inspect agent actions, judgments, rewards, and learning state.*
 
 Part of [GenLayer RL Agent Autonomy](https://github.com/luch91/genlayer-RL-agent-autonomy).
 
